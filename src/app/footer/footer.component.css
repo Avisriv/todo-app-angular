@@ -1,0 +1,10 @@
+.footerClass {
+    color: #a3a3a3;
+    font-size: medium;
+    font-style: Raleway, sans-serif !important;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+}

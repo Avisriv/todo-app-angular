@@ -1,0 +1,55 @@
+.logo-image {
+    height: 32px;
+    width: 50px;
+    background-repeat: no-repeat;
+    margin-right: 13px;
+}
+
+.logo-text {
+    height: 32px;
+    width: 200px;
+    background-repeat: no-repeat;
+}
+
+.welcome-message {
+    color: white;
+    width: auto;
+    font-size: 14px;
+}
+
+.username {
+    color: white;
+    font-family: Raleway-Medium, sans-serif;
+    width: auto;
+    margin-left: 5px;
+    font-size: medium;
+    float: right;
+}
+
+.separator {
+    color: #4e4e4e;
+    margin-left: 10px;
+    height: auto;
+    font-size: 22px;
+}
+
+.logout {
+    color: white;
+    margin-left: 15px;
+    height: auto;
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar {
+    background-color: transparent;
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+    position: fixed;
+    top: 10px;
+}
