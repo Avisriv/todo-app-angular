@@ -1,0 +1,53 @@
+.content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tableClass {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+}
+
+.mat-table-class {
+  width: 100%;
+  background-size: 100% 100%;
+  margin-top: -12px;
+  /* margin-left: 4%; */
+  overflow-y: scroll;
+  position: sticky;
+  overflow-x: hidden;
+  min-height: 538px;
+  max-height: 538px;
+}
+
+.mat-header-cell {
+  font-family: Raleway-Medium, sans-serif;
+  color: #dac39c;
+  position: sticky;
+}
+
+.mat-cell {
+  color: white;
+}
+
+td.mat-cell {
+  border-color: #717171;
+  font-size: 20px;
+}
+
+.tableHeaderClass {
+  background: #373737;
+}
+
+.mat-paginator {
+  bottom: 0;
+  width: 100%;
+  background-color: #212121;
+  color: white;
+}
+
+th.mat-header-cell {
+  border-color: #717171;
+  font-size: large;
+}

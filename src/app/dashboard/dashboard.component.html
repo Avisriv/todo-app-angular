@@ -1,0 +1,47 @@
+<div class="div-container toolbar-sidenav">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav opened="true" disableClose="true" fxLayout="column">
+      <mat-list>
+        <button
+          [routerLink]="'/dashboard/todoall'"
+          [routerLinkActive]="['is-active']"
+          mat-button
+          class="left-align"
+        >
+          <mat-icon>home</mat-icon>
+          <span class="button-text">All Tasks</span>
+        </button>
+        <mat-divider></mat-divider>
+
+        <button
+          [routerLink]="'/dashboard/todoactive'"
+          [routerLinkActive]="['is-active']"
+          mat-button
+          class="left-align"
+          mat-button
+          class="left-align"
+        >
+          <mat-icon>people</mat-icon>
+          <span class="button-text">Active Tasks</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button
+          [routerLink]="'/dashboard/todocompleted'"
+          [routerLinkActive]="['is-active']"
+          mat-button
+          class="left-align"
+        >
+          <mat-icon>message</mat-icon>
+          <span class="button-text">Completed Tasks</span>
+        </button>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
