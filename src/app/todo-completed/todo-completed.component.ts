@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { Sort } from '@angular/material/sort';
+import { TodoCompletedDataSource } from './todo-completed.datasource';
 
 @Component({
   selector: 'app-todo-completed',
@@ -6,5 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-completed.component.css'],
 })
 export class TodoCompletedComponent implements OnInit {
-  ngOnInit(): void {}
+
+  displayedColumns: string[] = [
+    'toggle',
+    'title',
+    'status',
+  ];
+  dataSourceCompletedTasks = new TodoCompletedDataSource();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor() {}
+
+  ngOnInit(): void {
+
+  }
+
+  sortData(sort: Sort) {
+  }
 }

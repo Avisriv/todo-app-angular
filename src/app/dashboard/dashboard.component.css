@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     bottom: 0;
+    overflow-y: hidden;
 }
 
 .toolbar-sidenav {

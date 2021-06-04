@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,6 +18,11 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TodoActiveComponent } from './todo-active/todo-active.component';
+import { TodoCompletedComponent } from './todo-completed/todo-completed.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,9 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    TodoAllComponent
+    TodoAllComponent,
+    TodoActiveComponent,
+    TodoCompletedComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,8 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     MatSortModule,
     MatInputModule,
+    MatCheckboxModule,
+    StoreModule.forRoot({ count: reducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

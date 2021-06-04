@@ -1,14 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
-import { Store } from '@ngrx/store';
-import { TodoActiveDataSource } from '../todo-active/todo-active.datasource';
-import { TodoCompletedDataSource } from '../todo-completed/todo-completed.datasource';
+import { TodoDataSource } from '../todo-all/todo.datasource';
 import { TodoAllDataSource } from './todo-all.datasource';
 import { TodoAllService } from './todo-all.service';
-import { State } from '../../app/store';
-import * as fromTodoListSelectors from '../store/selectors';
-
 
 @Component({
   selector: 'app-todo-all',
@@ -22,20 +17,17 @@ export class TodoAllComponent implements OnInit {
     'title',
     'status',
   ];
-  dataSourceAllTasks = new TodoAllDataSource(this.store);
+  dataSource = new TodoDataSource(this.service);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private service: TodoAllService, private store: Store<State>) {}
+  constructor(private service: TodoAllService) {}
 
   ngOnInit(): void {
-    this.service.getDatas().subscribe((response) => {
-      this.store.select(fromTodoListSelectors.getTodoItems);
-      this.dataSourceAllTasks.setData(response);
-    })
+    this.dataSource.getData().subscribe((response) => {
+      this.dataSource.setData(response);
+    });
   }
 
   sortData(sort: Sort) {
   }
-
-
 }

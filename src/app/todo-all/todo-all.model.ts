@@ -1,6 +1,6 @@
 export interface TodoAllModel {
   userId: number;
-  id: number;
+  id: string;
   title: string;
   completed: boolean;
 }
