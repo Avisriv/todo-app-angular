@@ -12,6 +12,7 @@ import { TodoAllService } from './todo-all.service';
 export class TodoAllComponent implements OnInit {
 
   displayedColumns: string[] = [
+    'toggle',
     'title',
     'status',
   ];
@@ -25,5 +26,10 @@ export class TodoAllComponent implements OnInit {
   }
 
   sortData(sort: Sort) {
+  }
+
+  setTaskChecked(genre: any, $event: any): void {
+    console.log(genre);
+    console.log($event);
   }
 }
