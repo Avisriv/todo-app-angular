@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { TodoActiveDataSource } from './todo-active.datasource';
 import { State } from '../../app/store';
 import { Store } from '@ngrx/store';
+import { TodoAllModel } from '../models/todo-all.model';
 
 @Component({
   selector: 'app-todo-active',
@@ -35,15 +36,15 @@ export class TodoActiveComponent implements OnInit {
     );
   }
 
-  clickRow(element: any) {
+  clickRow(element: TodoAllModel) {
     this.dataSourceActiveTasks.deleteRow(element);
   }
 
-  setTaskChecked(genre: any) {
-    this.dataSourceActiveTasks.setTaskChecked(genre);
+  setTaskChecked(element: TodoAllModel) {
+    this.dataSourceActiveTasks.setTaskChecked(element);
   }
 
-  onTitleEnter($event: any, element: any) {
+  onTitleEnter($event: any, element: TodoAllModel) {
     this.dataSourceActiveTasks.updateItem(
       element.id,
       ($event.target as HTMLInputElement).value

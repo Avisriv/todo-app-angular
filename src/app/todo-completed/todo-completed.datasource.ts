@@ -28,14 +28,14 @@ export class TodoCompletedDataSource extends MatTableDataSource<TodoAllModel> {
       });
   }
 
-  setTaskChecked(genre: any): void {
-    this.store.dispatch(changeCompletedStatus({ id: genre.id }));
+  setTaskChecked(element: TodoAllModel): void {
+    this.store.dispatch(changeCompletedStatus({ id: element.id }));
     if (this.searchString.length > 0) {
       this.applyFilter(this.searchString);
     }
   }
 
-  deleteRow(element: any) {
+  deleteRow(element: TodoAllModel) {
     this.store.dispatch(deleteTodoItem({ id: element.id }));
   }
 
@@ -47,7 +47,7 @@ export class TodoCompletedDataSource extends MatTableDataSource<TodoAllModel> {
     );
   }
 
-  updateItem(id: any, title: any) {
+  updateItem(id: string, title: string) {
     this.store.dispatch(changeTitle({ id: id, title: title }));
   }
 

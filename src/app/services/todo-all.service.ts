@@ -8,11 +8,13 @@ import { TodoAllModel } from '../models/todo-all.model';
   providedIn: 'root',
 })
 export class TodoAllService {
+
+  private url = 'https://jsonplaceholder.typicode.com/todos';
   constructor(private httpClient: HttpClient) {}
 
   getDatas(): Observable<TodoAllModel[]> {
     return this.httpClient
-      .get<{}>('https://jsonplaceholder.typicode.com/todos')
+      .get<{}>(this.url)
       .pipe(
         map(this.extractData),
         catchError((error: HttpErrorResponse) => {
