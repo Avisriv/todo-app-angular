@@ -1,3 +1,23 @@
+# How to run this project
+Make sure you have NodeJS14+ installed on your machine.
+
+Download this project by clicking on the Code button and then clicking on Download ZIP
+
+Unzip this project and then use any IDE of your choice (I have used VSCode) and navigate to root directory of this project.
+
+Run npm install
+
+Run ng serve
+
+Open browser and navigate to http://localhost:4200/
+
+Should be able to see below screen:
+
+(Please note: For editing title you can simply single click on the title, which will then enable editing and then press enter key to save)
+
+![image](https://user-images.githubusercontent.com/2521959/120931059-8d65b300-c722-11eb-90f1-a8290c3eff46.png)
+
+
 # TodoAppAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
