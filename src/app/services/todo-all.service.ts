@@ -2,18 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { TodoAllModel } from './todo-all.model';
+import { TodoAllModel } from '../models/todo-all.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoAllService {
-  apiParameter = '';
-  orgData: TodoAllModel[] = [];
-
   constructor(private httpClient: HttpClient) {}
 
-  getDatas(): Observable<any> {
+  getDatas(): Observable<TodoAllModel[]> {
     return this.httpClient
       .get<{}>('https://jsonplaceholder.typicode.com/todos')
       .pipe(
@@ -24,13 +21,7 @@ export class TodoAllService {
       );
   }
 
-  extractData(result: any): any {
-    console.log(result);
-    this.orgData = result;
-    return result;
-  }
-
-  getData() {
-    return this.orgData;
+  extractData(result: any): TodoAllModel[] {
+    return result.slice(0, 10);
   }
 }

@@ -1,38 +1,62 @@
 <div class="content">
-  <div class="mat-table-class">
-      <table mat-table #tableActive class="tableClass" matSort matSortActive="title" matSortDirection="asc" [dataSource]="dataSourceActiveTasks">
+    <div class="btn-layout" fxLayout="row" fxFlexAlign="center" fxLayoutGap="4%">
 
-          <ng-container matColumnDef="toggle">
-              <th mat-sort-header="toggle" mat-header-cell *matHeaderCellDef>
-                  Toggle
-              </th>
-              <td mat-cell *matCellDef="let element">
-                      <mat-checkbox [checked]="element.completed" (change)="dataSourceActiveTasks.setTaskChecked(element, $event)"></mat-checkbox>
-                      <label for="checkbox"></label>
-              </td>
-          </ng-container>
+        <h1 fxFlex="40%">Active Tasks</h1>
+        <div fxFlex="20%">
+            <mat-label>Add Active Task (Press Enter to submit)</mat-label>
+            <input matInput (keyup.enter)="onEnter($event)" />
+        </div>
+        <div fxFlex="20%">
+            <mat-label class="matplaceclr">Search Tasks (by Title)</mat-label>
+            <input type="search" matInput (keyup)="applyFilterTitle($event)" />
+        </div>
+    </div>
+    <div class="mat-table-class">
+        <table class="tableClass" mat-table #tableActive [dataSource]="dataSourceActiveTasks">
 
-          <ng-container matColumnDef="title">
-              <th mat-sort-header="title" mat-header-cell *matHeaderCellDef>
-                  Title
-              </th>
-              <td mat-cell *matCellDef="let element">
-                  <span>{{ element.title }}</span>
-              </td>
-          </ng-container>
+            <ng-container matColumnDef="toggle">
+                <th mat-header-cell *matHeaderCellDef>
+                    Toggle
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="round" (click)="setTaskChecked(element)">
+                        <input type="checkbox" [checked]="false" />
+                        <label for="checkbox"></label>
+                    </div>
 
-          <ng-container matColumnDef="status">
-              <th mat-sort-header="status" mat-header-cell *matHeaderCellDef>
-                  Status
-              </th>
-              <td mat-cell *matCellDef="let element">
-                  <span>{{ element.completed }}</span>
-              </td>
-          </ng-container>
+                </td>
+            </ng-container>
 
-          <tr class="tableHeaderClass" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-  </div>
-  <mat-paginator class="mat-paginator-sticky" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef>
+                    Title
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <input (click)="$event.stopPropagation()" class="titleClass" (keyup.enter)="onTitleEnter($event, element)" [value]="element.title" readonly="true" onblur="this.readOnly='true';" onclick="this.readOnly='';">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>
+                    Status
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <span>Active</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>Delete</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-icon (click)="clickRow(element)" class="action-icon">delete</mat-icon>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:
+                true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="setTaskChecked(row)"></tr>
+
+        </table>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>

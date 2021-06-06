@@ -3,6 +3,31 @@
     margin-bottom: 10px;
 }
 
+h1 {
+    color: white;
+}
+
+input.mat-input-element {
+    background: linear-gradient(#dac39c, #dac39c) center bottom 5px /calc(100% - 10px) 2px no-repeat;
+    background-color: white;
+    border: 1px solid;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+.matplaceclr {
+    color: #dac39c !important;
+}
+
+::placeholder {
+    color: #dac39c;
+    font-size: 12px;
+}
+
+mat-label {
+    color: #dac39c;
+}
+
 .tableClass {
     width: 100%;
     max-width: 100%;
@@ -15,6 +40,7 @@
     margin-top: -12px;
     /* margin-left: 4%; */
     overflow-y: scroll;
+    overflow-x: hidden;
     position: sticky;
     overflow-x: hidden;
     min-height: 538px;
@@ -31,25 +57,32 @@
     color: white;
 }
 
+th {
+    background-color: #373737;
+}
+
 td.mat-cell {
     border-color: #717171;
     font-size: 20px;
 }
 
-.tableHeaderClass {
-    background: #373737;
+.mat-paginator-sticky {
+    background-color: #373737;
 }
 
 .mat-paginator {
     bottom: 0;
     width: 100%;
-    background-color: #212121;
     color: white;
 }
 
 th.mat-header-cell {
     border-color: #717171;
     font-size: large;
+}
+
+.mat-row:hover {
+    cursor: pointer;
 }
 
 .round {
@@ -93,4 +126,32 @@ th.mat-header-cell {
 
 .round input[type="checkbox"]:checked+label:after {
     opacity: 1;
+}
+
+.titleStrikeThrough {
+    text-decoration: line-through;
+}
+
+.titleClass {
+    background: none;
+    border: none;
+    color: white;
+    font-size: large;
+    width: 100%;
+}
+
+.mat-column-toggle {
+    width: 10%;
+}
+
+.mat-column-title {
+    width: 50%;
+}
+
+.mat-column-status {
+    width: 20%;
+}
+
+.mat-column-delete {
+    width: 30%;
 }

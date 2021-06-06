@@ -1,14 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { Sort } from '@angular/material/sort';
-import { Store } from '@ngrx/store';
-import { TodoActiveDataSource } from '../todo-active/todo-active.datasource';
-import { TodoCompletedDataSource } from '../todo-completed/todo-completed.datasource';
 import { TodoAllDataSource } from './todo-all.datasource';
-import { TodoAllService } from './todo-all.service';
 import { State } from '../../app/store';
-import * as fromTodoListSelectors from '../store/selectors';
-
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-todo-all',
@@ -16,26 +10,43 @@ import * as fromTodoListSelectors from '../store/selectors';
   styleUrls: ['./todo-all.component.css'],
 })
 export class TodoAllComponent implements OnInit {
-
-  displayedColumns: string[] = [
-    'toggle',
-    'title',
-    'status',
-  ];
+  displayedColumns: string[] = ['toggle', 'title', 'status', 'delete'];
   dataSourceAllTasks = new TodoAllDataSource(this.store);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private service: TodoAllService, private store: Store<State>) {}
+  constructor(private store: Store<State>) {}
 
   ngOnInit(): void {
-    this.service.getDatas().subscribe((response) => {
-      this.store.select(fromTodoListSelectors.getTodoItems);
-      this.dataSourceAllTasks.setData(response);
-    })
+    this.dataSourceAllTasks.initData();
   }
 
-  sortData(sort: Sort) {
+  ngAfterViewInit(): void {
+    this.dataSourceAllTasks.paginator = this.paginator;
   }
 
+  onEnter($event: any) {
+    this.dataSourceAllTasks.addItem($event.target.value);
+    $event.target.value = null;
+  }
 
+  applyFilterTitle(event: KeyboardEvent): void {
+    this.dataSourceAllTasks.applyFilter(
+      (event.target as HTMLInputElement).value
+    );
+  }
+
+  clickRow(element: any) {
+    this.dataSourceAllTasks.deleteRow(element);
+  }
+
+  setTaskChecked(genre: any) {
+    this.dataSourceAllTasks.setTaskChecked(genre);
+  }
+
+  onTitleEnter($event: any, element: any) {
+    this.dataSourceAllTasks.updateItem(
+      element.id,
+      ($event.target as HTMLInputElement).value
+    );
+  }
 }

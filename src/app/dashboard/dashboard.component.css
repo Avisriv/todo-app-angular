@@ -4,16 +4,13 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     bottom: 0;
-    overflow-y: hidden;
 }
 
 .toolbar-sidenav {
     height: 100%;
     width: 100%;
-    margin-top: 64px;
     position: fixed;
     bottom: 0;
-    overflow: hidden;
 }
 
 .toolbar-sidenav .mat-sidenav {
@@ -44,7 +41,6 @@ button {
 
 .toolbar-sidenav .mat-sidenav .mat-list {
     padding: 5px;
-    overflow-y: hidden;
     height: 100%;
 }
 
@@ -57,7 +53,7 @@ button {
 }
 
 .mat-divider {
-  color: white;
+    color: white;
 }
 
 .example-container .mat-drawer-backdrop {
@@ -88,4 +84,17 @@ button {
 
 .is-active {
     background-color: #373737;
+}
+
+.topLine {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+.verticalLine {
+    margin: autoAvisriv;
+    width: 1px;
+    height: 100%;
+    background-color: white;
 }
