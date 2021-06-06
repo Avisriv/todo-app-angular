@@ -1,3 +1,5 @@
+Total time spent: Around 10 hours in a span of 4 days.
+
 # How to run this project
 Make sure you have NodeJS14+ installed on your machine.
 
