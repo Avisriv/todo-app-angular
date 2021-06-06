@@ -42,15 +42,9 @@ export class TodoCompletedDataSource extends MatTableDataSource<TodoAllModel> {
   addItem(title: string) {
     this.store.dispatch(
       setNewItem({
-        item: { userId: 1, id: uuidv4(), title: title, completed: false },
+        item: { userId: 1, id: uuidv4(), title: title, completed: true },
       })
     );
-    // this.todoListService.addItem({title});
-  }
-
-  removeItem(item: any) {
-    this.store.dispatch(deleteTodoItem({ id: item.id }));
-    // this.todoListService.deleteItem(item);
   }
 
   updateItem(id: any, title: any) {

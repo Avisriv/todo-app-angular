@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { Sort } from '@angular/material/sort';
 import { TodoCompletedDataSource } from './todo-completed.datasource';
 import { State } from '../../app/store';
 import { Store } from '@ngrx/store';
